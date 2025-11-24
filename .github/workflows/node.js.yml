@@ -20,8 +20,20 @@ jobs:
           node-version: '23'
       - name: Frontend Compilation
         run: | 
-          cd client 
+          cd src
           find . -name "*.js" -exec node --check {} +
+          
+  gitleaks: 
+    runs-on: Agent-1
+    steps:
+      -  name: checkout code
+         uses: actions/checkout@v4
+      -  name: setup-gitleaks
+         uses: gitleaks/gitleaks-action@v2
+
+      -  name: Gitleaks-scan
+         run: |
+           gitleaks detect --source ./src --exit-code 1
 
 
           
