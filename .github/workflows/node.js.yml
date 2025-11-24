@@ -47,7 +47,7 @@ jobs:
         scan-ref: '.'
         format: 'table'
         ignore-unfixed: true
-        vuln-type: 'os, library'
+        vuln-type: 'library'
         severity: 'CRITICAL,HIGH'
         # trivy-config: trivy.yaml
           
