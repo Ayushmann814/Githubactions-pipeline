@@ -36,7 +36,12 @@ jobs:
          run: |
            gitleaks detect --source ./src --exit-code 1
 
-
+  trivy:
+    needs: gitleaks
+    runs-on: Agent-1
+    steps: 
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@0.28.0
           
       #     cache: 'npm'
       # - run: npm ci
