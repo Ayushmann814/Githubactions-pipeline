@@ -1,0 +1,31 @@
+name: Node.js CICD
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  compile:
+    runs-on: Agent-1
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+        
+      - name: setup Node.js 
+        uses: actions/setup-node@v4
+        with:
+          node-version: '23'
+      - name: Frontend Compilation
+        run: | 
+          cd client 
+          find . -name "*.js" -exec node --check {} +
+
+
+          
+      #     cache: 'npm'
+      # - run: npm ci
+      # - run: npm run build --if-present
+      # - run: npm test
