@@ -49,6 +49,29 @@ jobs:
         ignore-unfixed: true
         vuln-type: 'library'
         severity: 'CRITICAL,HIGH'
+
+  sonarqube:
+    runs-on: Agent-1
+    steps:
+       -  name: checkout code
+          uses: actions/checkout@v4
+       -  name: sonarqube scan
+          uses: SonarSource/sonarqube-scan-action@<action version>
+          with:
+            projectBaseDir: ./src
+            args: >
+             -Dsonar.organization=my-organization # For SonarQube Cloud only
+             "-Dsonar.projectName=My Project"
+             -Dsonar.projectKey=my-projectkey
+             -Dsonar.sources= .
+             -Dsonar.test.exclusions= **/node_modules/**,**/dist/**,**/build/**
+          env:
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}   
+   
+
+
+        
         # trivy-config: trivy.yaml
           
       #     cache: 'npm'
