@@ -59,7 +59,7 @@ jobs:
        -  name: sonarqube scan
           uses: SonarSource/sonarqube-scan-action@master
           with:
-            projectBaseDir: ./src
+            projectBaseDir: src
             args: >
              -Dsonar.organization=my-organization # For SonarQube Cloud only
              "-Dsonar.projectName=My Project"
