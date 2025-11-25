@@ -64,7 +64,7 @@ jobs:
           with:
             projectBaseDir: src
             args: >
-             -Dsonar.organization=my-organization # For SonarQube Cloud only
+             -Dsonar.organization=my-organization
              "-Dsonar.projectName=My Project"
              -Dsonar.projectKey=my-projectkey
              -Dsonar.sources= .
