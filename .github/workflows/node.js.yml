@@ -64,10 +64,9 @@ jobs:
           with:
             projectBaseDir: src
             args: >
-             -Dsonar.organization=my-organization
              "-Dsonar.projectName=My Project"
              -Dsonar.projectKey=my-projectkey
-             -Dsonar.sources= .
+             -Dsonar.sources=.
              -Dsonar.test.exclusions= **/node_modules/**,**/dist/**,**/build/**
           env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
