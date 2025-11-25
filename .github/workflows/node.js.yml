@@ -52,11 +52,12 @@ jobs:
 
   sonarqube:
     runs-on: Agent-1
+    needs: trivy
     steps:
        -  name: checkout code
           uses: actions/checkout@v4
        -  name: sonarqube scan
-          uses: SonarSource/sonarqube-scan-action@<action version>
+          uses: SonarSource/sonarqube-scan-action@master
           with:
             projectBaseDir: ./src
             args: >
