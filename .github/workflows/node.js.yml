@@ -64,10 +64,10 @@ jobs:
           with:
             projectBaseDir: src
             args: >
-             "-Dsonar.projectName=My Project"
+             "-Dsonar.projectName=My-Project"
              -Dsonar.projectKey=my-projectkey
              -Dsonar.sources=.
-             -Dsonar.test.exclusions= **/node_modules/**,**/dist/**,**/build/**
+             -Dsonar.test.exclusions=**/node_modules/**,**/dist/**,**/build/**
           env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
             SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}   
